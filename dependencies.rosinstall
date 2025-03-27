@@ -24,7 +24,7 @@
    version: c5c839c
 - git:
    local-name: distributed_mapper
-   uri: https://github.com/PengYu-Team/distributed_mapper_catkin.git
+   uri: https://github.com/zhongshp/distributed_mapper_catkin.git
    version: 5f4ce8e
 - git:
    local-name: livox_ros_driver
