@@ -6,6 +6,9 @@ https://user-images.githubusercontent.com/41199568/213071890-679025cf-23f5-48f0-
 
 The HD video of the demonstration of DCL-SLAM is avaliable at [BiliBili](https://www.bilibili.com/video/BV12G4y187mw/?spm_id_from=333.337.search-card.all.click).
 
+## Author
+[Shipeng Zhong](https://github.com/zhongshp) & [Dapeng Feng](https://github.com/DapengFeng) & [Zhiqiang Chen](https://github.com/thisparticle)
+
 ## Prerequisites
   - [Ubuntu ROS](http://wiki.ros.org/ROS/Installation) (Robot Operating System on Ubuntu 18.04 or 20.04)
   - Python (For wstool and catkin tool)
@@ -74,12 +77,16 @@ This work is published in IEEE Sensors Journal 2023, and please cite related pap
 ```
 
 ```
-@article{feng2022s3e,
-  title={S3e: A large-scale multimodal dataset for collaborative slam},
-  author={Feng, Dapeng and Qi, Yuhua and Zhong, Shipeng and Chen, Zhiqiang and Jiao, Yudu and Chen, Qiming and Jiang, Tao and Chen, Hongbo},
-  journal={arXiv preprint arXiv:2210.13723},
-  year={2022}
-}
+@ARTICLE{10740801,
+  author={Feng, Dapeng and Qi, Yuhua and Zhong, Shipeng and Chen, Zhiqiang and Chen, Qiming and Chen, Hongbo and Wu, Jin and Ma, Jun},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={S3E: A Multi-Robot Multimodal Dataset for Collaborative SLAM}, 
+  year={2024},
+  volume={9},
+  number={12},
+  pages={11401-11408},
+  keywords={Simultaneous localization and mapping;Robot sensing systems;Synchronization;Trajectory;Global navigation satellite system;Collaboration;Accuracy;Motion capture;Robot localization;Multi-robot systems;Multi-robot SLAM;data sets for SLAM;SLAM},
+  doi={10.1109/LRA.2024.3490402}}
 ```
 
 ## Acknowledgement
