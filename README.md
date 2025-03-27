@@ -34,9 +34,9 @@ The HD video of the demonstration of DCL-SLAM is avaliable at [BiliBili](https:/
   Then use wstool for fetching catkin dependencies:
   ```
   cd src
-  git clone https://github.com/PengYu-Team/DCL-SLAM.git
-  git clone https://github.com/PengYu-Team/DCL-LIO-SAM.git
-  git clone https://github.com/PengYu-Team/DCL-FAST-LIO.git
+  git clone https://github.com/zhongshp/DCL-SLAM.git
+  git clone https://github.com/zhongshp/DCL-LIO-SAM.git
+  git clone https://github.com/zhongshp/DCL-FAST-LIO.git
   wstool init
   wstool merge DCL-SLAM/dependencies.rosinstall
   wstool update
@@ -49,7 +49,7 @@ The HD video of the demonstration of DCL-SLAM is avaliable at [BiliBili](https:/
   ```
   
 ## Run with Dataset
-  - [S3E dataset](https://github.com/PengYu-Team/S3E). The datasets are configured to run with default parameter.
+  - [S3E dataset](https://github.com/DapengFeng/S3E). The datasets are configured to run with default parameter.
   ```
   roslaunch dcl_slam run.launch
   rosbag play *your-bag-path*.bag
