@@ -123,7 +123,9 @@ std::pair<Eigen::VectorXf, cv::Mat1b> lidar_iris_descriptor::getIris(
 }
 
 inline cv::Mat lidar_iris_descriptor::circRowShift(
+	// const参照をやめると治った
 	const cv::Mat &src,
+	// cv::Mat src,
 	int shift_m_rows)
 {
 	if(shift_m_rows == 0)
@@ -132,6 +134,13 @@ inline cv::Mat lidar_iris_descriptor::circRowShift(
 	}
 	shift_m_rows %= src.rows;
 	int m = shift_m_rows > 0 ? shift_m_rows : src.rows + shift_m_rows;
+	// terminate called after throwing an instance of 'cv::Exception'
+	// what(): OpenCV(4.2.0) ../modules/core/src/matrix_wrap.cpp:1659: error: (-215:Assertion failed) !fixedSize() in function 'release'
+	// このエラーを防ぐために以下の行を追加（なおらず）
+	if (m == src.rows)
+	{
+		return src.clone();
+	}
 	cv::Mat dst(src.size(), src.type());
 	src(cv::Range(src.rows - m, src.rows), cv::Range::all()).copyTo(dst(cv::Range(0, m), cv::Range::all()));
 	src(cv::Range(0, src.rows - m), cv::Range::all()).copyTo(dst(cv::Range(m, src.rows), cv::Range::all()));
@@ -139,7 +148,9 @@ inline cv::Mat lidar_iris_descriptor::circRowShift(
 }
 
 inline cv::Mat lidar_iris_descriptor::circColShift(
+	// const参照をやめた
 	const cv::Mat &src,
+	// cv::Mat src,
 	int shift_n_cols)
 {
 	if(shift_n_cols == 0)
@@ -148,6 +159,13 @@ inline cv::Mat lidar_iris_descriptor::circColShift(
 	}
 	shift_n_cols %= src.cols;
 	int n = shift_n_cols > 0 ? shift_n_cols : src.cols + shift_n_cols;
+	// terminate called after throwing an instance of 'cv::Exception'
+	// what(): OpenCV(4.2.0) ../modules/core/src/matrix_wrap.cpp:1659: error: (-215:Assertion failed) !fixedSize() in function 'release'
+	// このエラーを防ぐために以下の行を追加（なおらず）
+	if (n == src.cols)
+	{
+		return src.clone();
+	}
 	cv::Mat dst(src.size(), src.type());
 	src(cv::Range::all(), cv::Range(src.cols - n, src.cols)).copyTo(dst(cv::Range::all(), cv::Range(0, n)));
 	src(cv::Range::all(), cv::Range(0, src.cols - n)).copyTo(dst(cv::Range::all(), cv::Range(n, src.cols)));

@@ -1,7 +1,10 @@
 <launch>
+	<param name="/use_sim_time" value="false" /> <!-- Set for using ROS bridge-->
+
 	<arg name="set_lio_type" default="1"/> <!-- 1 for LIO-SAM
 												2 for FAST-LIO2 -->
 	<param name="/number_of_robots" value="3"/>
+	<param name="map_leaf_size" value="0.4"/> <!-- default 0.04 -->
 	<arg name="set_respawn_value" default="false"/>  <!-- boolean: true, false -->
 
 	<!--- rviz -->
@@ -9,6 +12,7 @@
 	<node pkg="dcl_slam" type="dcl_slam_loopVisualizationNode" name="dcl_slam_loopVisualizationNode" output="screen" />
 
 	<!-- Robot list -->
+
   	<include file="$(find dcl_slam)/launch/single_ugv.launch">
     	<arg name="robotPrefix" value="a"/>
 		<arg name="respawnValue" value="$(arg set_respawn_value)"/>
@@ -33,7 +37,9 @@
 	<!-- <arg name="SYSU_bag" value="$(env HOME)/SYSU_FOOTBALL_FIELD_1.bag"/>  -->
 	<!-- <arg name="SYSU_bag" value="$(env HOME)/rosbag-data/S3E/SYSU_FOOTBALL_FIELD_2.bag"/>  -->
 	<!-- <arg name="SYSU_bag" value="$(env HOME)/rosbag-data/S3E/SYSU_LIVING_QUARTERS.bag"/> -->
-	<arg name="SYSU_bag" value="$(env HOME)/rosbag-data/S3E/SYSU_LIBRARY.bag"/>
+	<arg name="SYSU_bag" value="$(env HOME)/cslam_ws/data/S3E_Dormitory_1.bag"/>
+	<!-- <arg name="SYSU_bag" value="$(env HOME)/cslam_ws/data/S3E_Library_1.bag"/> -->
+	<!-- <arg name="SYSU_bag" value="$(env HOME)/cslam_ws/data/S3E_Playground_2.bag"/> -->
 	<!-- <arg name="SYSU_bag" value="$(env HOME)/rosbag-data/S3E/SYSU_LABORATORY_BUILDING.bag"/> -->
 	<!-- <arg name="SYSU_bag" value="$(env HOME)/rosbag-data/S3E/SYSU_TEACHING_BUILDING.bag"/> -->
 	<!-- <arg name="SYSU_bag" value="$(env HOME)/rosbag-data/S3E/SYSU_ARCHWAY_2.bag"/> -->
@@ -50,12 +56,12 @@
 	<remap from="/Bob/imu/data" to="/b/imu/data"/>
 	<remap from="/Carol/imu/data" to="/c/imu/data"/>
 
-	<!-- <node name="player2" pkg="rosbag" type="play" output="screen" args="-r 1 -q -d 8 $(arg SYSU_bag)"/> -->
+	<node name="player2" pkg="rosbag" type="play" output="screen" args="-r 1 -q -d 8 $(arg SYSU_bag)"/> <!-- Coppeliasim使うときはコメントアウト -->
 
-	<arg name="bag_file3" value="$(env HOME)/2022_07_22_19_48_01_rect.bag"/>
-	<arg name="bag_file4" value="$(env HOME)/2022_07_22_19_54_37_rect.bag"/>
-	<arg name="bag_file5" value="$(env HOME)/2022_07_22_20_01_00_rect.bag"/>
-  	<node name="player3" pkg="rosbag" type="play" output="screen" args="-r 1 -p a -q -d 2 $(arg bag_file3)"/>
-	<node name="player4" pkg="rosbag" type="play" output="screen" args="-r 1 -p b -q -d 2 $(arg bag_file4)"/>
+	<!--<arg name="bag_file3" value="$(env HOME)/cslam_ws/data/data.bag"/> --> <!--これをコメントアウトしたら謎process死ななくなった-->
+	<!-- <arg name="bag_file4" value="$(env HOME)/cslam_ws/data/2022_07_22_19_54_37_rect.bag"/> -->
+	<!-- <arg name="bag_file5" value="$(env HOME)/cslam_ws/data/2022_07_22_20_01_00_rect.bag"/> -->
+  	<!-- <node name="player3" pkg="rosbag" type="play" output="screen" args="-r 1 -p a -q -d 2 $(arg bag_file3)"/> -->
+	<!-- <node name="player4" pkg="rosbag" type="play" output="screen" args="-r 1 -p b -q -d 2 $(arg bag_file4)"/> -->
 	<!-- <node name="player5" pkg="rosbag" type="play" output="screen" args="-r 1 -p c -q -d 2 $(arg bag_file5)"/> -->
 </launch>
