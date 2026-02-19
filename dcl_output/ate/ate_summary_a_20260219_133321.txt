@@ -1,0 +1,26 @@
+============================================================
+ATE Summary for robot 'a'
+Timestamp: 20260219_133321
+============================================================
+Number of pose pairs: 223
+------------------------------------------------------------
+Trajectory length (GT):  78.43 m
+Trajectory length (Est): 77.97 m
+------------------------------------------------------------
+WITHOUT alignment (raw):
+  RMSE:   1.5940 m
+------------------------------------------------------------
+WITH SE(3) alignment (Umeyama):
+  RMSE:   0.4314 m
+  Mean:   0.3926 m
+  Median: 0.4148 m
+  Max:    0.9991 m
+  ATE/Len:0.55 %
+============================================================
+
+Files:
+  GT:  /home/hiroki/cslam_ws/dcl_output/ate/gt_a_20260219_133321.txt
+  Est: /home/hiroki/cslam_ws/dcl_output/ate/est_global_a_20260219_133321.txt
+
+To reproduce with evo:
+  evo_ape tum /home/hiroki/cslam_ws/dcl_output/ate/gt_a_20260219_133321.txt /home/hiroki/cslam_ws/dcl_output/ate/est_global_a_20260219_133321.txt --align --plot --plot_mode xyz

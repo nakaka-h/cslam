@@ -1,0 +1,37 @@
+<launch>
+    <!--
+        CoppeliaSim to DCL-SLAM Bridge
+        ===============================
+        CoppeliaSim Lua スクリプト側:
+          /<prefix>/velodyne_points_raw  (ワールド座標系 PointCloud2, time=1.0)
+          /<prefix>/imu/data_raw         (sensor_msgs/Imu, 20Hz)
+          TF: map -> <prefix>/base_link  (真値姿勢)
+
+        本ブリッジが publish:
+          /<prefix>/velodyne_points  (ボディ座標系 PointCloud2)
+          /<prefix>/imu/data         (sensor_msgs/Imu, 200Hz 補間、共分散付き)
+    -->
+
+    <arg name="prefix" default="a"/>
+    <arg name="world_frame" default="map"/>
+    
+    <!-- IMU 共分散パラメータ（より現実的な値で不確実性推定を改善） -->
+    <arg name="acc_noise" default="0.5"/>      <!-- 加速度ノイズ [m/s^2] -->
+    <arg name="gyro_noise" default="0.5"/>     <!-- 角速度ノイズ [rad/s] -->
+    <arg name="orient_noise" default="0.5"/>   <!-- 姿勢ノイズ -->
+    <arg name="lidar_frequency" default="5.0"/> <!-- VLP-16 回転周波数 [Hz] -->
+    <arg name="lidar_max_range" default="4.5"/> <!-- LiDAR最大検出距離 [m] -->
+
+    <node pkg="cslam_coppelia_bridge" type="bridge_node.py"
+          name="coppelia_bridge_$(arg prefix)" output="screen">
+        <param name="prefix" value="$(arg prefix)"/>
+        <param name="body_frame" value="$(arg prefix)/base_link"/>
+        <param name="world_frame" value="$(arg world_frame)"/>
+        <param name="imu_target_rate" value="200"/>
+        <param name="lidar_frequency" value="$(arg lidar_frequency)"/>
+        <param name="acc_noise" value="$(arg acc_noise)"/>
+        <param name="gyro_noise" value="$(arg gyro_noise)"/>
+        <param name="orient_noise" value="$(arg orient_noise)"/>
+        <param name="lidar_max_range" value="$(arg lidar_max_range)"/>
+    </node>
+</launch>

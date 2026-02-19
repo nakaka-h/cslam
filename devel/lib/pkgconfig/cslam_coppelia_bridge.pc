@@ -1,0 +1,8 @@
+prefix=/home/hiroki/cslam_ws/devel
+
+Name: cslam_coppelia_bridge
+Description: Description of cslam_coppelia_bridge
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

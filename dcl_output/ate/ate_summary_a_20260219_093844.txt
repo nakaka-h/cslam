@@ -1,0 +1,22 @@
+============================================================
+ATE Summary for robot 'a'
+Timestamp: 20260219_093844
+============================================================
+Number of pose pairs: 79
+------------------------------------------------------------
+WITHOUT alignment (raw):
+  RMSE:   1.5118 m
+------------------------------------------------------------
+WITH SE(3) alignment (Umeyama):
+  RMSE:   0.1169 m
+  Mean:   0.0985 m
+  Median: 0.0872 m
+  Max:    0.3392 m
+============================================================
+
+Files:
+  GT:  /home/hiroki/cslam_ws/dcl_output/ate/gt_a_20260219_093844.txt
+  Est: /home/hiroki/cslam_ws/dcl_output/ate/est_global_a_20260219_093844.txt
+
+To reproduce with evo:
+  evo_ape tum /home/hiroki/cslam_ws/dcl_output/ate/gt_a_20260219_093844.txt /home/hiroki/cslam_ws/dcl_output/ate/est_global_a_20260219_093844.txt --align --plot --plot_mode xyz
