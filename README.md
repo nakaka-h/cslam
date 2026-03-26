@@ -100,6 +100,13 @@ https://blog.csdn.net/qq_46842599/article/details/146329373
 ## 7. 本研究の統合追試手順 (RACER + DCL-SLAM + CoppeliaSim)
 
 以下は、現状運用している手順です。
+### 7.0 環境構築済みのパソコンについて
+このアヒルがぶら下がってるパソコンです。
+![Image](https://github.com/user-attachments/assets/8d923ed0-e94f-47e2-bda7-f38367024ddb)
+もしわからなければ、パソコンを解体して1TBのHDDが入っていればそこに環境構築済みのLinuxが入っているので、できる限りそれを使用することおすすめします。
+
+このパソコンはWindowsとLinuxのデュアルブートです。以下の画面で起動OSを選択してください。
+![Image](https://github.com/user-attachments/assets/1f967fd9-458d-4bfb-88d7-8883fbad05e9)
 
 ### 7.1 事前起動
 ターミナル（計6つのターミナルが必要なためTerminatorの使用推奨）を起動し、
