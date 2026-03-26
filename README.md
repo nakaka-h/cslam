@@ -105,7 +105,7 @@ https://blog.csdn.net/qq_46842599/article/details/146329373
 ![Image](https://github.com/user-attachments/assets/8d923ed0-e94f-47e2-bda7-f38367024ddb)
 もしわからなければ、パソコンを解体して1TBのHDDが入っていればそこに環境構築済みのLinuxが入っているので、できる限りそれを使用することおすすめします。
 
-このパソコンはWindowsとLinuxのデュアルブートです。以下の画面で起動OSを選択してください。
+このパソコンはWindowsとLinuxのデュアルブートです。以下の画面で起動OSを選択してください。Windows Boot ManagerがWindows、UbuntuがLinuxです。
 ![Image](https://github.com/user-attachments/assets/1f967fd9-458d-4bfb-88d7-8883fbad05e9)
 
 ### 7.1 事前起動
